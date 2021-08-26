@@ -74,6 +74,59 @@ img:not([alt]) {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important; } }
 
+/*!********************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/startPageFilms/startPageFilms.scss ***!
+  \********************************************************************************************************************************************/
+.container {
+  max-width: 1920px;
+  margin: 0 auto; }
+
+.content {
+  padding-top: 15px;
+  min-height: 100vh;
+  background-color: #191A1E;
+  color: #F4F4F5;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300; }
+
+.films-here {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 25px; }
+
+/*!************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/moviePreviewCard/moviePreviewCard.scss ***!
+  \************************************************************************************************************************************************/
+.one-film-here {
+  margin: 15px 0;
+  color: #9a9a9a;
+  overflow: hidden; }
+
+.img-film {
+  display: block;
+  width: 100%;
+  height: 500px;
+  border-radius: 7px 7px 0 0;
+  filter: brightness(80%);
+  transition: filter 2s;
+  object-fit: cover; }
+
+.img-film:hover, .img-film:active {
+  filter: brightness(100%); }
+
+.film-description {
+  background-color: rgba(15, 16, 17, 0.9);
+  padding: 10px;
+  border-radius: 0 0 7px 7px;
+  word-wrap: break-word; }
+
+.film-title {
+  display: block;
+  font-size: 26px;
+  max-width: 350px;
+  word-wrap: break-word; }
+
 /*!****************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/header/header.scss ***!
   \****************************************************************************************************************************/
@@ -150,57 +203,6 @@ img:not([alt]) {
 
 .footer-menu-item-link:hover, .footer-menu-item-link:active {
   color: #F4F4F5; }
-
-/*!********************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/startPageFilms/startPageFilms.scss ***!
-  \********************************************************************************************************************************************/
-.container {
-  max-width: 1920px;
-  margin: 0 auto; }
-
-.content {
-  padding-top: 15px;
-  min-height: 100vh;
-  background-color: #191A1E;
-  color: #F4F4F5;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300; }
-
-.films-here {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding-bottom: 25px; }
-
-/*!************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/moviePreviewCard/moviePreviewCard.scss ***!
-  \************************************************************************************************************************************************/
-.one-film-here {
-  margin: 15px 0;
-  color: #9a9a9a; }
-
-.img-film {
-  display: block;
-  width: 100%;
-  max-height: 500px;
-  border-radius: 7px 7px 0 0;
-  filter: brightness(80%);
-  transition: filter 2s;
-  object-fit: cover; }
-
-.img-film:hover, .img-film:active {
-  filter: brightness(100%); }
-
-.film-description {
-  background-color: rgba(15, 16, 17, 0.9);
-  padding: 10px;
-  border-radius: 0 0 7px 7px;
-  word-wrap: break-word; }
-
-.film-title {
-  display: block;
-  font-size: 26px;
-  word-wrap: break-word; }
 
 /*!******************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/aboutFilmPage/aboutFilmPage.scss ***!

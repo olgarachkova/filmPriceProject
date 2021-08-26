@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Fragment } from "react";
 import axios from 'axios';
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from 'react-redux';
 
 import { AboutFilmPage } from 'components/aboutFilmPage'
+import { Header } from 'components/header'
+import { Footer } from 'components/footer'
 import { GET_FILM_INFO } from "actions/filmsActions"
 
 
@@ -30,7 +32,6 @@ export function AboutFilmPageContainer() {
                     type: GET_FILM_INFO,
                     payload: response.data
                 });
-                //setFilmInfo(response.data.data);
             } catch (error) {
                 console.error(error);
             }
@@ -42,6 +43,10 @@ export function AboutFilmPageContainer() {
 
 
     return (
-        <AboutFilmPage filmInfo={filmInfo} />
+        <Fragment>
+            <Header />
+            <AboutFilmPage filmInfo={filmInfo} />
+            <Footer />
+        </Fragment>
     )
 }

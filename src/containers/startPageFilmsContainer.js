@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
 import { StartPageFilms } from "components/startPageFilms";
-import { SET_TOP20FILMS } from "actions/filmsActions"
+import { Header } from 'components/header'
+import { Footer } from 'components/footer'
+import { GET_TOP20FILMS } from "actions/filmsActions"
 
 const kinopoiskAPI_URL = "https://kinopoiskapiunofficial.tech";
 const APItopFilms = "/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1";
 
-export function StartPageFilmsContainer() {
+export function StartPageFilmsContainer({ history }) {
 
     const dispatch = useDispatch();
 
@@ -21,7 +23,7 @@ export function StartPageFilmsContainer() {
                     }
                 });
                 dispatch({
-                    type: SET_TOP20FILMS,
+                    type: GET_TOP20FILMS,
                     payload: response.data
                 });
             } catch (error) {
@@ -34,6 +36,10 @@ export function StartPageFilmsContainer() {
     const topFilms = useSelector(state => state.films.topfilms);
 
     return (
-        <StartPageFilms topFilms={topFilms} />
+        <Fragment>
+            <Header history={history} />
+            <StartPageFilms topFilms={topFilms} />
+            <Footer />
+        </Fragment>
     )
 }

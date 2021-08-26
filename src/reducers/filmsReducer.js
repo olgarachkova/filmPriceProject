@@ -1,14 +1,15 @@
-import { SET_TOP20FILMS, GET_FILM_INFO } from "actions/filmsActions"
+import { GET_TOP20FILMS, GET_FILM_INFO, GET_SEARCH_RESULTS } from "actions/filmsActions"
 
 const initialState = {
     loading: false,
     topfilms: [],
-    film: {}
+    film: {},
+    searchresults: []
 };
 
 export const filmsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_TOP20FILMS: {
+        case GET_TOP20FILMS: {
             return {
                 ...state,
                 topfilms: action.payload.films
@@ -18,6 +19,12 @@ export const filmsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 film: action.payload.data
+            };
+        }
+        case GET_SEARCH_RESULTS: {
+            return {
+                ...state,
+                searchresults: action.payload.films
             };
         }
         default:

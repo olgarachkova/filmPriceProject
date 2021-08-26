@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router";
-
-import { SearchPage } from 'components/searchPage'
 import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { GET_SEARCH_RESULTS } from "actions/filmsActions"
+import { SearchPage } from 'components/searchPage'
+import { Header } from 'components/header'
+import { Footer } from 'components/footer'
 
 const kinopoiskAPI_URL = "https://kinopoiskapiunofficial.tech";
 const APISearchByKeyword = "/api/v2.1/films/search-by-keyword?keyword=";
@@ -12,8 +16,8 @@ const APISearchByKeyword = "/api/v2.1/films/search-by-keyword?keyword=";
 export function SearchPageContainer(props) {
     const { query } = useParams();
     const querytest = 'куб';
-    const [results, setResults] = useState([]);
-    let history = useHistory();
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         async function getFilmsByKeyword() {
@@ -23,9 +27,10 @@ export function SearchPageContainer(props) {
                         'X-API-KEY': '8fcf6015-6f7e-408c-9ced-d7c67167b5a2',
                     }
                 });
-                setResults(response.data.films);
-                debugger;
-                console.log(results);
+                dispatch({
+                    type: GET_SEARCH_RESULTS,
+                    payload: response.data
+                });
             } catch (error) {
                 console.error(error);
             }
@@ -34,6 +39,8 @@ export function SearchPageContainer(props) {
         getFilmsByKeyword();
         console.log(props);
     }, []);
+
+    const results = useSelector(state => state.films.searchresults);
 
     return (
         <SearchPage results={results} />

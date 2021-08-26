@@ -13,16 +13,7 @@ export function Header(props) {
     }
 
     const handleSubmit = () => {
-        console.log(searchQuery);
-        debugger;
-        history.push("/search?query=cube");
-        console.log(props);
-    }
-
-    const handleClick = () => {
-        console.log(searchQuery);
-        debugger;
-        history.push("/search?query=cube");
+        history.push(`/search?query=${searchQuery}`);
     }
 
     return (
@@ -36,7 +27,7 @@ export function Header(props) {
                     <form onSubmit={handleSubmit} >
                         <input type="text" name="filmsearch" placeholder="введите название фильма" className="filmsearch"
                             onChange={handleInputChange} />
-                        <button name="submit" className="filmsearch-button" onClick={handleClick}>Поиск</button>
+                        <button name="submit" className="filmsearch-button">Поиск</button>
                     </form>
                 </div>
             </div>
