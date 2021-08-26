@@ -1,5 +1,4 @@
 import { SET_TOP20FILMS, GET_FILM_INFO } from "actions/filmsActions"
-import { top20films } from "../mock-films";
 
 const initialState = {
     loading: false,
