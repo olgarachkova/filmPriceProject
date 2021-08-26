@@ -1,0 +1,25 @@
+.film-title {
+    display: block;
+    font-size: 26px;
+}
+
+.film-minititle {
+    display: block;
+    font-size: 20px;
+}
+
+.about-film {
+    display: flex;
+    color: #F4F4F5;
+    margin: 20px 0;
+}
+
+.about-film-img{
+    border-radius: 7px 0 0 7px;
+}
+
+.about-film-bigdescrition {
+    padding: 10px 15px;
+    background-color: rgba(15,16,17, 0.9);
+    border-radius: 0 7px 7px 0;
+}
