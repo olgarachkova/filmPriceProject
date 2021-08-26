@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
 import { StartPageFilms } from "components/startPageFilms";
+import { SET_TOP20FILMS } from "actions/filmsActions"
 
 const kinopoiskAPI_URL = "https://kinopoiskapiunofficial.tech";
 const APItopFilms = "/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1";
 
 export function StartPageFilmsContainer() {
-    const [topFilms, setTopFilms] = useState([]);
 
-    /**
-     * запрос к апи кинопоиска, получение топ-20
-     */
+    const dispatch = useDispatch();
+
     useEffect(() => {
         async function getTopFilms() {
             try {
@@ -21,14 +20,18 @@ export function StartPageFilmsContainer() {
                         'X-API-KEY': '8fcf6015-6f7e-408c-9ced-d7c67167b5a2',
                     }
                 });
-                setTopFilms(response.data.films);
+                dispatch({
+                    type: SET_TOP20FILMS,
+                    payload: response.data
+                });
             } catch (error) {
                 console.error(error);
             }
         }
-
         getTopFilms();
-    }, [])
+    }, []);
+
+    const topFilms = useSelector(state => state.films.topfilms);
 
     return (
         <StartPageFilms topFilms={topFilms} />

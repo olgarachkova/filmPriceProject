@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
-export function Header() {
+export function Header(props) {
     const [searchQuery, setSearchQuery] = useState("");
-    let history = useHistory();
+    let { history } = props;
 
     const handleInputChange = (event) => {
         setSearchQuery(event.target.value);
@@ -16,6 +16,7 @@ export function Header() {
         console.log(searchQuery);
         debugger;
         history.push("/search?query=cube");
+        console.log(props);
     }
 
     const handleClick = () => {
@@ -33,7 +34,7 @@ export function Header() {
                         <a href="#" className="header-menu-item">Фильтры</a>
                     </nav>
                     <form onSubmit={handleSubmit} >
-                        <input type="text" name="moviesearch" placeholder="введите название фильма" className="filmsearch"
+                        <input type="text" name="filmsearch" placeholder="введите название фильма" className="filmsearch"
                             onChange={handleInputChange} />
                         <button name="submit" className="filmsearch-button" onClick={handleClick}>Поиск</button>
                     </form>
