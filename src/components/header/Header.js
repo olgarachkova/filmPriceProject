@@ -1,12 +1,11 @@
 import './header.scss'
 
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 export function Header(props) {
     const [searchQuery, setSearchQuery] = useState("");
-    let { history } = props;
+    const { history } = props;
 
     const handleInputChange = (event) => {
         setSearchQuery(event.target.value);
@@ -14,7 +13,7 @@ export function Header(props) {
 
     const handleSubmit = () => {
         debugger;
-        history.push(`/search?query=${searchQuery}`);
+        history.push(`/search?filmsearch=${searchQuery}`);
     }
 
     return (

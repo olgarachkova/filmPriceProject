@@ -1,7 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
-import { useParams } from "react-router";
-import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { GET_SEARCH_RESULTS } from "actions/filmsActions"
@@ -14,14 +12,14 @@ const APISearchByKeyword = "/api/v2.1/films/search-by-keyword?keyword=";
 //https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=avengers&page=1
 
 export function SearchPageContainer({ history }) {
-    const query = history.location.search.slice(7);
-
+    const [searchQuery, setSearchQuery] = useState(history.location.search.slice(12));
+    useState()
     const dispatch = useDispatch();
 
     useEffect(() => {
         async function getFilmsByKeyword() {
             try {
-                const response = await axios.get(kinopoiskAPI_URL + APISearchByKeyword + query, {
+                const response = await axios.get(kinopoiskAPI_URL + APISearchByKeyword + searchQuery, {
                     headers: {
                         'X-API-KEY': '8fcf6015-6f7e-408c-9ced-d7c67167b5a2',
                     }
@@ -35,7 +33,8 @@ export function SearchPageContainer({ history }) {
             }
         }
         getFilmsByKeyword();
-    }, []);
+        console.log(searchQuery);
+    }, [searchQuery]);
 
     const results = useSelector(state => state.films.searchresults);
 
