@@ -16,7 +16,7 @@ export const myroutes = [
         component: AboutFilmPageContainer
     },
     {
-        path: '/search?query=:query',
+        path: '/search',
         component: SearchPageContainer
     },
     {

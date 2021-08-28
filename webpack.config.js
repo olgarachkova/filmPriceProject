@@ -4,20 +4,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development',
-    devServer: {
-        static: {
-            directory: path.join(__dirname, 'dist'),
-        },
-        compress: false,
-        port: 9000,
-        historyApiFallback: {
-            index: path.join(__dirname, 'dist', 'index.html'),
-        },
-    },
     entry: path.resolve(__dirname, 'src', 'index.jsx'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/'
     },
     devtool: 'eval-source-map',
     resolve: {
@@ -33,15 +24,20 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
             },
             {
-                test: /\.s?css$/,
+                test: /.s?css$/,
                 use: [
                     'style-loader',
-                    //MiniCssExtractPlugin.loader,
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            esModule: false,
+                        },
+                    },
                     'css-loader',
                     'sass-loader'
                 ]
@@ -56,5 +52,11 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'main.css'
         })
-    ]
+    ],
+    devServer: {
+        compress: false,
+        hot: true,
+        port: 3000,
+        historyApiFallback: true,
+    }
 }

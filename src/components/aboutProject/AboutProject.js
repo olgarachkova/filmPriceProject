@@ -1,13 +1,20 @@
 import './aboutProject.scss';
 
-import React from 'react';
+import React, { Fragment } from 'react';
 
-export function AboutProject() {
+import { Header } from 'components/header'
+import { Footer } from 'components/footer'
+
+export function AboutProject({ history }) {
     return (
-        <main className='content'>
-            <div className='container'>
-                <p>Информация о проекте</p>
-            </div>
-        </main>
+        <Fragment>
+            <Header history={history} />
+            <main className='content'>
+                <div className='container'>
+                    <p>Информация о проекте</p>
+                </div>
+            </main>
+            <Footer />
+        </Fragment>
     )
 }

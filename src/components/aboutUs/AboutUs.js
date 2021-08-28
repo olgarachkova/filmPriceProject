@@ -1,13 +1,20 @@
 import './aboutUs.scss';
 
-import React from 'react';
+import React, { Fragment } from 'react';
 
-export function AboutUs() {
+import { Header } from 'components/header'
+import { Footer } from 'components/footer'
+
+export function AboutUs({ history }) {
     return (
-        <main className='content'>
-            <div className='container'>
-                <p>Информация о разработчиках</p>
-            </div>
-        </main>
+        <Fragment>
+            <Header history={history} />
+            <main className='content'>
+                <div className='container'>
+                    <p>Информация о разработчиках</p>
+                </div>
+            </main>
+            <Footer />
+        </Fragment>
     )
 }

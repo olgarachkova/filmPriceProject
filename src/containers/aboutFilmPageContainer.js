@@ -12,7 +12,7 @@ import { GET_FILM_INFO } from "actions/filmsActions"
 const kinopoiskAPI_URL = "https://kinopoiskapiunofficial.tech";
 const APIfilmDataByID = "/api/v2.1/films/"; //+{id}
 
-export function AboutFilmPageContainer() {
+export function AboutFilmPageContainer({ history }) {
     const { filmid } = useParams(); // /film/:filmid
 
     const dispatch = useDispatch();
@@ -44,7 +44,7 @@ export function AboutFilmPageContainer() {
 
     return (
         <Fragment>
-            <Header />
+            <Header history={history} />
             <AboutFilmPage filmInfo={filmInfo} />
             <Footer />
         </Fragment>

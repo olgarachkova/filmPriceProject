@@ -13,6 +13,7 @@ export function Header(props) {
     }
 
     const handleSubmit = () => {
+        debugger;
         history.push(`/search?query=${searchQuery}`);
     }
 
