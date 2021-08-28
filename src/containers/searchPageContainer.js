@@ -13,7 +13,6 @@ const APISearchByKeyword = "/api/v2.1/films/search-by-keyword?keyword=";
 
 export function SearchPageContainer({ history }) {
     const [searchQuery, setSearchQuery] = useState(history.location.search.slice(12));
-    useState()
     const dispatch = useDispatch();
 
     useEffect(() => {
