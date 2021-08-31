@@ -12,7 +12,6 @@ export function Header(props) {
     }
 
     const handleSubmit = () => {
-        debugger;
         history.push(`/search?filmsearch=${searchQuery}`);
     }
 

@@ -17,6 +17,7 @@ export const myroutes = [
     },
     {
         path: '/search',
+        exact: true,
         component: SearchPageContainer
     },
     {

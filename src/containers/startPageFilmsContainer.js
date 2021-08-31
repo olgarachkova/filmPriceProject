@@ -7,8 +7,7 @@ import { Header } from 'components/header'
 import { Footer } from 'components/footer'
 import { GET_TOP20FILMS } from "actions/filmsActions"
 
-const kinopoiskAPI_URL = "https://kinopoiskapiunofficial.tech";
-const APItopFilms = "/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1";
+import { kinopoiskAPI_URL, APItopFilms, kinopoiskAPI_value } from "assets/kinopoisk";
 
 export function StartPageFilmsContainer({ history }) {
 
@@ -19,7 +18,7 @@ export function StartPageFilmsContainer({ history }) {
             try {
                 const response = await axios.get(kinopoiskAPI_URL + APItopFilms, {
                     headers: {
-                        'X-API-KEY': '8fcf6015-6f7e-408c-9ced-d7c67167b5a2',
+                        'X-API-KEY': kinopoiskAPI_value,
                     }
                 });
                 dispatch({

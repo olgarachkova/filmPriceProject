@@ -2,14 +2,13 @@ import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { GET_SEARCH_RESULTS } from "actions/filmsActions"
-import { SearchPage } from 'components/searchPage'
-import { Header } from 'components/header'
-import { Footer } from 'components/footer'
+import { GET_SEARCH_RESULTS } from "actions/filmsActions";
+import { SearchPage } from 'components/searchPage';
+import { Header } from 'components/header';
+import { Footer } from 'components/footer';
 
-const kinopoiskAPI_URL = "https://kinopoiskapiunofficial.tech";
-const APISearchByKeyword = "/api/v2.1/films/search-by-keyword?keyword=";
-//https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=avengers&page=1
+import { kinopoiskAPI_URL, APISearchByKeyword, kinopoiskAPI_value } from "assets/kinopoisk";
+
 
 export function SearchPageContainer({ history }) {
     const [searchQuery, setSearchQuery] = useState(history.location.search.slice(12));
@@ -20,7 +19,7 @@ export function SearchPageContainer({ history }) {
             try {
                 const response = await axios.get(kinopoiskAPI_URL + APISearchByKeyword + searchQuery, {
                     headers: {
-                        'X-API-KEY': '8fcf6015-6f7e-408c-9ced-d7c67167b5a2',
+                        "X-API-KEY": kinopoiskAPI_value,
                     }
                 });
                 dispatch({
