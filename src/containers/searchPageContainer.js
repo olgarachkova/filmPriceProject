@@ -7,7 +7,7 @@ import { SearchPage } from 'components/searchPage';
 import { Header } from 'components/header';
 import { Footer } from 'components/footer';
 
-import { kinopoiskAPI_URL, APISearchByKeyword, kinopoiskAPI_value } from "assets/kinopoisk";
+import { kinopoiskAPI_URL, APISearchByKeyword, kinopoiskAPI_headers } from "assets/kinopoisk";
 
 
 export function SearchPageContainer({ history }) {
@@ -18,9 +18,7 @@ export function SearchPageContainer({ history }) {
         async function getFilmsByKeyword() {
             try {
                 const response = await axios.get(kinopoiskAPI_URL + APISearchByKeyword + searchQuery, {
-                    headers: {
-                        "X-API-KEY": kinopoiskAPI_value,
-                    }
+                    headers: kinopoiskAPI_headers
                 });
                 dispatch({
                     type: GET_SEARCH_RESULTS,
@@ -42,6 +40,5 @@ export function SearchPageContainer({ history }) {
             <SearchPage results={results} />
             <Footer />
         </Fragment>
-
     )
 }

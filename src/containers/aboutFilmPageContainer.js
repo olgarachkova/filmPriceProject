@@ -8,7 +8,7 @@ import { Header } from 'components/header'
 import { Footer } from 'components/footer'
 import { GET_FILM_INFO } from "actions/filmsActions"
 
-import { kinopoiskAPI_URL, APIfilmDataByID, kinopoiskAPI_value } from "assets/kinopoisk";
+import { kinopoiskAPI_URL, APIfilmDataByID, kinopoiskAPI_headers, getFilmInfo } from "assets/kinopoisk";
 
 export function AboutFilmPageContainer({ history }) {
     const { filmid } = useParams(); // /film/:filmid
@@ -22,9 +22,7 @@ export function AboutFilmPageContainer({ history }) {
         async function getFilmInfo() {
             try {
                 const response = await axios.get(kinopoiskAPI_URL + APIfilmDataByID + filmid, {
-                    headers: {
-                        'X-API-KEY': kinopoiskAPI_value,
-                    }
+                    headers: kinopoiskAPI_headers
                 });
                 dispatch({
                     type: GET_FILM_INFO,
