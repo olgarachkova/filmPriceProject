@@ -9,7 +9,7 @@ export function StartPageFilms({ topFilms }) {
     return (
         <main className='content'>
             <div className='container'>
-                <div className='films-here'>
+                <div className='startpagefilms-here'>
                     {topFilms.map((film, idx) => <Link to={'/film/' + film.filmId} key={idx}>
                         <MoviePreviewCard
                             id={film.filmId}

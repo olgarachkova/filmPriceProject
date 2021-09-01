@@ -25,6 +25,7 @@ $footer-minheight: 30px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-right: 15px;
 }
 
 .footer-menu-item {
@@ -39,4 +40,10 @@ $footer-minheight: 30px;
 
 .footer-menu-item-link:hover, .footer-menu-item-link:active {
     color: $white1;
+}
+
+@media screen and (max-width: 500px) {
+    .footer-menu {
+        margin-right: 15px;
+    }
 }

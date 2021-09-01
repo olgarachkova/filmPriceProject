@@ -1,7 +1,7 @@
 $grey2: #191A1E;
 $white1: #F4F4F5;
 
-$desktop-width: 1280px;
+$desktop-width: 1920px;
 
 .container {
     max-width: $desktop-width;
@@ -13,13 +13,20 @@ $desktop-width: 1280px;
     min-height: 100vh;
     background-color: $grey2;
     color: $white1;
-    font-family: 'Poppins', sans-serif;
+    font-family: sans-serif;
     font-weight: 300;
 }
 
-.films-here {
+.searchpagefilms-here {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     padding-bottom: 25px;
+}
+
+@media screen and (max-width: 1280px) {
+    .searchpagefilms-here {
+        justify-content: space-around;
+        padding: 0 5px;
+    }
 }

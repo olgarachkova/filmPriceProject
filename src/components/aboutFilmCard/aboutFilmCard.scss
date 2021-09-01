@@ -11,7 +11,7 @@
 .about-film {
     display: flex;
     color: #F4F4F5;
-    margin: 20px 0;
+    padding: 20px 0;
 }
 
 .about-film-img{
@@ -22,4 +22,19 @@
     padding: 10px 15px;
     background-color: rgba(15,16,17, 0.9);
     border-radius: 0 7px 7px 0;
+}
+
+@media screen and (max-width: 600px) {
+    .about-film {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .about-film-img{
+        border-radius: 7px 7px 0 0;
+    }
+    
+    .about-film-bigdescrition {
+        border-radius: 0 0 7px 7px;
+    }
 }

@@ -40,6 +40,7 @@ $header-minheight: 30px;
     height: 40px;
     border-radius: 7px;
     font-size: 20px;
+    margin-bottom: 5px;
 }
 
 .filmsearch-button {
@@ -57,4 +58,19 @@ $header-minheight: 30px;
 
 .filmsearch-button:hover, .filmsearch-button:active {
     border: 1px solid $white1;
+}
+
+@media screen and (max-width: 600px) {
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .filmsearch{
+        max-width: 250px;
+        height: 40px;
+        border-radius: 7px;
+        font-size: 20px;
+    }
 }
